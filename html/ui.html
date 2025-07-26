@@ -1,0 +1,71 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"
+        integrity="sha256-xH4q8N0pEzrZMaRmd7gQVcTZiFei+HfRTBPJ1OGXC0k=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <!-- <div id="notification-container"></div> -->
+
+    <div id="qbcore-inventory">
+        <div class="inventory-info">
+            <div class="player-inv-info prevent-select">
+                <span id="player-inv-label">Inventario</span>
+                <span id="player-inv-weight-value">0</span>
+            </div>
+            <div class="other-inv-info prevent-select">
+                <span id="other-inv-label">Suelo</span>
+            </div>
+        </div>
+
+        <div class="inv-container">
+            <div class="ply-inv-container">
+                <div class="player-inventory prevent-select" data-inventory="player" tabindex="-1"></div>
+            </div>
+
+            <div class="oth-inv-container">
+                <div class="other-inventory prevent-select" data-inventory="other" tabindex="-1"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="context-menu" class="context-menu">
+        <ul>
+            <li id="context-use">Usar</li>
+            <li id="context-give">Dar</li>
+            <li id="context-split">Split</li>
+            <li id="context-attachments">Attachments</li>
+            <input class="context-amount" type="range" max=10 min="1"
+                oninput="this.nextElementSibling.value = this.value" />
+            <output for="range">0</output>
+        </ul>
+    </div>
+
+    <div class="item-info" id="item-info"></div>
+
+    <!--         <div class="itemboxes-container"></div>
+        <div class="requiredItem-container"></div> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script src="js/app.js" type="text/javascript"></script>
+</body>
+
+</html>
