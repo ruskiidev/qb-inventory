@@ -151,7 +151,7 @@ RegisterNetEvent('inventory_client:UseWeapon', function(weaponData, shootbool)
                             TriggerServerEvent("inventory:updateWeaponAmmo", weaponData.slot, ammo)
                         end, Config.WeaponAmmoByGroup[GetWeapontypeGroup(currentWeapon)], ammo_diff)
                     else
-                        QBCore.Functions.Notify('El arma ya esta cargada!!', 'error')
+                        QBCore.Functions.Notify('Weapon is already loaded!!', 'error')
                     end
                 end
                 Wait(5)

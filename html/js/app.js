@@ -144,7 +144,7 @@ Inventory.Close = () => {
     var notificationElement = document.getElementById('item-info');
     notificationElement.style.display = 'none';
     contextMenu.style.display = 'none';
-    $.post("https://ruski-inventory/CloseInventory", JSON.stringify({}));
+    $.post("https://qb-inventory/CloseInventory", JSON.stringify({}));
 }
 
 document.addEventListener('mouseover', function (event) {
@@ -234,7 +234,7 @@ document.addEventListener('mouseup', function (event) {
             }
 
             if (toSlot != fromSlot || toInventory != fromInventory) {
-                $.post("https://ruski-inventory/SetInventoryData", JSON.stringify({
+                $.post("https://qb-inventory/SetInventoryData", JSON.stringify({
                     fromInventory: fromInventory,
                     toInventory: toInventory,
                     fromSlot: fromSlot,
@@ -296,7 +296,7 @@ window.addEventListener('contextmenu', function (event) {
 
     // Context menu actions
     document.getElementById('context-use').onclick = function () {
-        $.post("https://ruski-inventory/UseItem", JSON.stringify({
+        $.post("https://qb-inventory/UseItem", JSON.stringify({
             inventory: target.getAttribute('inventory-id'),
             item: contextItem,
         }));
@@ -307,7 +307,7 @@ window.addEventListener('contextmenu', function (event) {
 
     document.getElementById("context-give").onclick = function () {
         $.post(
-            "https://ruski-inventory/GiveItem",
+            "https://qb-inventory/GiveItem",
             JSON.stringify({
                 inventory: target.getAttribute("inventory-id"),
                 item: contextItem,
@@ -318,7 +318,7 @@ window.addEventListener('contextmenu', function (event) {
     }
 
     this.document.getElementById("context-split").onclick = function () {
-        $.post("https://ruski-inventory/SetInventoryData", JSON.stringify({
+        $.post("https://qb-inventory/SetInventoryData", JSON.stringify({
             fromInventory: target.getAttribute("inventory-id"),
             toInventory: target.getAttribute("inventory-id"),
             fromSlot: contextItem.slot,

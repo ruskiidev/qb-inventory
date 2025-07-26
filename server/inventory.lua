@@ -696,13 +696,13 @@ function OpenInventory(tipo, id, other, invid)
             Inventories[shop_id].weight = GetInventoryWeigth(shop_id)
             TriggerClientEvent("inventory:cl:OpenInventory", invid, nil, Inventories[player_inv], Inventories[shop_id])
         end
-
         -- Cuando el inv es un drop
     elseif tipo == nil and id ~= nil then
         if id and Inventories[id] then
             Inventories[id].weight = GetInventoryWeigth(id)
+
             if Inventories[id].open then
-                QBCore.Functions.Notify(invid, "El inventario parece estar siendo usado...", 'error')
+                QBCore.Functions.Notify(invid, "Its been used...", 'error')
                 TriggerEvent("inventory:setOpenState", player_inv, false)
                 TriggerClientEvent("inventory:cl:OpenInventory", invid, nil, Inventories[player_inv], nil)
                 return
@@ -763,7 +763,7 @@ RegisterNetEvent('inventory:server:UseItemSlot', function(slot)
     if not itemData then return end
 
     if itemData.type == "weapon" and itemData.amount > 1 then
-        QBCore.Functions.Notify(src, "Hay mas de un item en este slot, intenta usar 1 solo...", 'error')
+        QBCore.Functions.Notify(src, "There is more than one item in this slot, try to use only 1...", 'error')
         return nil
     end
 
@@ -987,19 +987,19 @@ function EquipWeaponTint(source, tint, name)
     if not Inventories[id] then return end
 
     if tint > 7 and string.find(itemName, "mk2") == nil then
-        TriggerClientEvent('QBCore:Notify', source, 'Este arma debe ser de tipo mk2', 'error')
+        TriggerClientEvent('QBCore:Notify', source, 'This weapon must be of type mk2', 'error')
         return
     end
 
     local slot = Inventories[id].current_weapon_slot
 
     if slot == nil then
-        TriggerClientEvent('QBCore:Notify', source, 'Debes tener un arma equipada!', 'error')
+        TriggerClientEvent('QBCore:Notify', source, 'You must have a weapon equipped!', 'error')
         return
     end
 
     if Inventories[id].items[slot].info.tint == tint then
-        TriggerClientEvent('QBCore:Notify', source, 'Ya tienes el arma pintada con este tine!', 'error')
+        TriggerClientEvent('QBCore:Notify', source, 'You already have the gun painted with this tint!', 'error')
         return
     end
 
@@ -1219,7 +1219,7 @@ QBCore.Commands.Add('giveitem', 'Give An Item (Admin Only)',
         local amount = tonumber(args[3])
 
         if not QBCore.Shared.Items[item_name] then
-            QBCore.Functions.Notify(src, "No existe este item...", 'error')
+            QBCore.Functions.Notify(src, "There is no such item......", 'error')
             return
         end
         
@@ -1229,7 +1229,7 @@ QBCore.Commands.Add('giveitem', 'Give An Item (Admin Only)',
         if not Inventories[id] or not item_name or not amount then return end
 
         if (GetInventoryWeigth(id) + item_weight) > Inventories[id].maxweight then
-            QBCore.Functions.Notify(src, "Parece que pesa demasiado para llevar esto...", 'error')
+            QBCore.Functions.Notify(src, "It seems to be too heavy to carry this...", 'error')
             return
         end
 
